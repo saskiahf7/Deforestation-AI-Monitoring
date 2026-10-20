@@ -1,7 +1,7 @@
 # deforestation-ai-monitoring
 
 🌐 Akses Website Live Demo:  
-https://saskiahf7.github.io/deforestation-ai-monitoring/
+https://saskiahf7.github.io/Deforestation-AI-Monitoring/
 
 ---
 
