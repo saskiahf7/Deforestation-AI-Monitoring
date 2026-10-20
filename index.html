@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deforestation AI Research // Informatika Unib</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(rgba(4, 15, 9, 0.93), rgba(6, 22, 13, 0.96)), 
+                  url('https://images.unsplash.com/photo-1511497584788-8767611425e1?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: #d1d5db;
+    }
+
+    .font-mono-custom {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .deep-card {
+      background: rgba(10, 26, 17, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid #1e3a29;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .forest-subtle-btn {
+      background: rgba(14, 38, 24, 0.9);
+      border: 1px solid #234e35;
+      color: #86efac;
+      transition: all 0.2s ease;
+    }
+
+    .forest-subtle-btn:hover, .forest-subtle-btn.active {
+      background: #166534;
+      border-color: #4ade80;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-800 selection:text-white">
+
+  <!-- Header -->
+  <header class="w-full bg-[rgba(6,20,12,0.95)] backdrop-blur border-b border-[#1e3a29] sticky top-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <!-- Logo diubah menjadi ikon dedaunan -->
+        <div class="w-9 h-9 bg-[#10301d] border border-[#235336] flex items-center justify-center text-base text-emerald-400">
+          🌿
+        </div>
+        <div>
+          <h1 class="text-xs font-bold tracking-widest uppercase text-emerald-300">Geo-Information Science Lab</h1>
+          <!-- Tulisan di bawah diganti menjadi Informatika Universitas Bengkulu -->
+          <p class="text-[10px] text-slate-400 font-mono-custom">Informatika Universitas Bengkulu</p>
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-3 text-xs font-mono-custom text-slate-400">
+        <span class="px-2.5 py-1 bg-[#0a1a11] border border-[#1e3a29] rounded text-emerald-400">STATUS: ACTIVE SENSOR</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex-1 space-y-10 w-full">
+
+    <!-- Hero Section -->
+    <section class="deep-card p-8 md:p-10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-[#10301d] border-l border-b border-[#1e3a29] px-5 py-1.5 font-mono-custom text-[11px] text-emerald-400 uppercase tracking-widest">
+        Remote Sensing Keynote 2026
+      </div>
+
+      <div class="space-y-4 max-w-4xl">
+        <span class="inline-block px-3 py-1 bg-[#10301d] border border-[#235336] font-mono-custom text-xs text-emerald-300">
+          [RESEARCH TOPIC] DEFORESTATION DRIVER ATTRIBUTION WITH AI
+        </span>
+
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-white leading-snug">
+          Attributing Direct Drivers to Deforestation Alerts with Satellite Imagery & AI
+        </h2>
+
+        <div class="p-4 bg-[rgba(8,22,14,0.9)] border border-[#1e3a29] text-xs font-mono-custom text-slate-300 space-y-2">
+          <p><strong class="text-emerald-400">Speaker:</strong> Bart Slagter <span class="text-slate-500 block sm:inline">(Laboratory of Geo-Information Science & Remote Sensing, WUR, Netherlands)</span></p>
+          <p class="text-slate-300 leading-relaxed font-sans pt-1">
+            Kuliah praktisi internasional ini membedah metode mutakhir dalam mendeteksi dan mengklasifikasikan penyebab langsung hilangnya tutupan hutan tropis secara otomatis. Dengan menggabungkan citra satelit optik beresolusi tinggi dan radar multi-sensor bersama kecerdasan buatan (Convolutional Neural Network), sistem mampu memberikan peringatan dini bulanan yang sangat krusial bagi upaya konservasi lingkungan global.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Section 1: Satellite Pixel Matrix Scanner Simulation -->
+    <section class="deep-card p-6 md:p-8 space-y-6">
+      <div class="border-b border-[#1e3a29] pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h3 class="font-bold text-base uppercase tracking-wider text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-table-cells text-emerald-500"></i> Interactive Pixel Matrix Scanner (Sentinel-1 & 2)
+          </h3>
+          <p class="text-xs text-slate-400">Klik grid piksel di bawah untuk mensimulasikan pembacaan spektral tensor citra satelit pada koordinat hutan tropis:</p>
+        </div>
+        <div class="px-3 py-1 bg-[#10301d] border border-[#235336] font-mono-custom text-xs text-emerald-300">
+          Resolution: 10m x 10m
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Pixel Matrix Grid (5x5) -->
+        <div class="lg:col-span-6 grid grid-cols-5 gap-2 p-4 bg-[rgba(8,22,14,0.9)] border border-[#1e3a29]" id="pixelGrid">
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Matrix Inspector Output -->
+        <div class="lg:col-span-6 p-6 bg-[rgba(8,22,14,0.9)] border border-[#1e3a29] space-y-4 font-mono-custom text-xs">
+          <div class="flex justify-between items-center border-b border-[#1e3a29] pb-2">
+            <span class="text-emerald-400 font-bold uppercase">Tensor Inspector Analysis</span>
+            <span id="pixelCoord" class="text-slate-500">Coord: [X: 0, Y: 0]</span>
+          </div>
+          
+          <div class="space-y-2 text-slate-300">
+            <p><strong>Sentinel-1 Radar Backscatter:</strong> <span id="valS1" class="text-emerald-300">-12.4 dB (Dense Canopy)</span></p>
+            <p><strong>Sentinel-2 Near-Infrared (NIR):</strong> <span id="valS2" class="text-emerald-400">0.78 NDVI (Healthy Vegetation)</span></p>
+            <p><strong>Model Classification Prediction:</strong> <span id="valClass" class="text-teal-300">Undisturbed Primary Forest</span></p>
+          </div>
+
+          <p class="text-[11px] font-sans text-slate-300 leading-relaxed pt-2 border-t border-[#1e3a29]">
+            <strong>Penjelasan Sistem:</strong> Model Deep Learning CNN secara kontinu memproses matriks piksel spasial 10x10 meter. Nilai pantulan radar (backscatter) digunakan untuk menembus awan tebal di wilayah tropis, sementara indeks vegetasi optik mengukur tingkat kesehatan kanopi pohon guna mendeteksi anomali perubahan secara real-time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Section 2: Deep Learning Driver Classification Matrix -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Selector -->
+      <div class="lg:col-span-5 deep-card p-6 space-y-4 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="border-b border-[#1e3a29] pb-3">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-emerald-300 flex items-center gap-2">
+              <i class="fa-solid fa-brain text-emerald-500"></i> AI Driver Classification Matrix
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">Pilih kategori pemicu deforestasi untuk melihat tingkat akurasi dan karakteristik spasial:</p>
+          </div>
+
+          <div class="space-y-2 font-mono-custom text-xs">
+            <button onclick="selectDriver('agri')" id="btnAgri" class="forest-subtle-btn active w-full text-left p-3 font-bold flex justify-between items-center">
+              <span>01. Agriculture (Small/Large Scale)</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+            <button onclick="selectDriver('logging')" id="btnLogging" class="forest-subtle-btn w-full text-left p-3 font-bold flex justify-between items-center">
+              <span>02. Selective Logging & Roads</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+            <button onclick="selectDriver('mining')" id="btnMining" class="forest-subtle-btn w-full text-left p-3 font-bold flex justify-between items-center">
+              <span>03. Mining Activities</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+            <button onclick="selectDriver('fire')" id="btnFire" class="forest-subtle-btn w-full text-left p-3 font-bold flex justify-between items-center">
+              <span>04. Wildfires & Natural Floods</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 bg-[rgba(8,22,14,0.9)] border border-[#1e3a29] text-[11px] font-mono-custom text-slate-400">
+          WUR Research Accuracy Benchmark: Evaluated across Amazon, Congo, and SE Asia.
+        </div>
+      </div>
+
+      <!-- Right Details & Mini Chart -->
+      <div class="lg:col-span-7 deep-card p-6 space-y-6 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="border-b border-[#1e3a29] pb-3 flex justify-between items-center">
+            <h3 id="driverTitle" class="font-bold text-base text-emerald-300 uppercase">Agriculture (Small / Large Scale)</h3>
+            <span id="driverScore" class="text-xs font-mono-custom bg-[#10301d] border border-[#235336] px-2.5 py-1 text-emerald-400 font-bold">Accuracy: 92.4%</span>
+          </div>
+
+          <p id="driverDesc" class="text-xs text-slate-300 leading-relaxed font-sans">
+            Pembukaan lahan masif atau ladang berpindah yang terdeteksi melalui penurunan tajam indeks vegetasi optik (Sentinel-2) serta perluasan area terbuka secara berkala setiap bulan. Kategori ini merupakan pemicu deforestasi terbesar di wilayah tropis Amerika Selatan dan Asia Tenggara.
+          </p>
+        </div>
+
+        <div class="h-48 flex justify-center items-center">
+          <canvas id="driverDetailChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#1e3a29] bg-[rgba(6,20,12,0.95)] backdrop-blur py-6 text-center text-xs space-y-1 font-mono-custom text-slate-500">
+    <p class="font-bold text-emerald-400 uppercase">© 2026 Deforestation AI Research Portal // Dark Forest Green Theme</p>
+    <p>Informatika Universitas Bengkulu</p>
+  </footer>
+
+  <!-- Script Interactions -->
+  <script>
+    const gridContainer = document.getElementById('pixelGrid');
+    const pixelStates = [
+      { s1: "-12.4 dB", s2: "0.78 NDVI", cls: "Undisturbed Forest", color: "bg-emerald-950/80 border-emerald-700 text-emerald-400" },
+      { s1: "-9.1 dB", s2: "0.32 NDVI", cls: "Agriculture Clearing", color: "bg-amber-950/80 border-amber-700 text-amber-300" },
+      { s1: "-14.0 dB", s2: "0.82 NDVI", cls: "Dense Canopy", color: "bg-emerald-950/80 border-emerald-700 text-emerald-400" },
+      { s1: "-10.5 dB", s2: "0.41 NDVI", cls: "Selective Logging Road", color: "bg-yellow-950/80 border-yellow-700 text-yellow-300" },
+      { s1: "-8.2 dB", s2: "0.15 NDVI", cls: "Mining Disturbance", color: "bg-teal-950/80 border-teal-700 text-teal-300" }
+    ];
+
+    for(let i=0; i<25; i++) {
+      let state = pixelStates[i % pixelStates.length];
+      let btn = document.createElement('button');
+      btn.className = `h-14 border ${state.color} flex flex-col items-center justify-center text-[10px] font-mono-custom font-bold rounded transition hover:opacity-80`;
+      btn.innerHTML = `<span>[${Math.floor(i/5)},${i%5}]</span><span class="text-[9px] opacity-75">10m</span>`;
+      btn.onclick = () => {
+        document.getElementById('pixelCoord').innerText = `Coord: [X: ${Math.floor(i/5)}, Y: ${i%5}]`;
+        document.getElementById('valS1').innerText = state.s1;
+        document.getElementById('valS2').innerText = state.s2;
+        document.getElementById('valClass').innerText = state.cls;
+      };
+      gridContainer.appendChild(btn);
+    }
+
+    const ctxDriver = document.getElementById('driverDetailChart').getContext('2d');
+    let driverChart = new Chart(ctxDriver, {
+      type: 'bar',
+      data: {
+        labels: ['Amazon Basin', 'Congo Basin', 'Southeast Asia', 'Bolivia', 'Central America'],
+        datasets: [{
+          label: 'Tingkat Atribusi Pemicu (%)',
+          data: [65, 45, 55, 70, 50],
+          backgroundColor: '#166534',
+          borderColor: '#4ade80',
+          borderWidth: 1,
+          borderRadius: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: { grid: { color: '#0f291a' }, ticks: { color: '#9ca3af', font: { family: 'JetBrains Mono', size: 10 } } },
+          x: { grid: { display: false }, ticks: { color: '#9ca3af', font: { family: 'JetBrains Mono', size: 10 } } }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    const driverDetails = {
+      agri: {
+        title: "Agriculture (Small / Large Scale)",
+        score: "Accuracy: 92.4%",
+        desc: "Pembukaan lahan masif atau ladang berpindah yang terdeteksi melalui penurunan tajam indeks vegetasi optik (Sentinel-2) serta perluasan area terbuka secara berkala setiap bulan. Kategori ini merupakan pemicu deforestasi terbesar di wilayah tropis Amerika Selatan dan Asia Tenggara.",
+        data: [65, 45, 55, 70, 50]
+      },
+      logging: {
+        title: "Selective Logging & Access Roads",
+        score: "Accuracy: 84.1%",
+        desc: "Ditandai dengan kemunculan jaringan jalan akses penebangan (logging roads) kecil menembus bagian dalam kanopi hutan lebat tanpa merusak total seluruh blok. Model AI dilatih untuk mengenali pola linier akses buatan manusia di tengah ekosistem hutan primer.",
+        data: [30, 60, 40, 35, 45]
+      },
+      mining: {
+        title: "Mining Activities (Gold / Minerals)",
+        score: "Accuracy: 88.6%",
+        desc: "Aktivitas pembukaan lahan di sepanjang aliran sungai atau area konsesi yang menghasilkan perubahan warna tanah dan lubang galian terbuka yang spesifik. Citra radar Sentinel-1 sangat membantu mendeteksi perubahan struktur permukaan tanah ini secara akurat.",
+        data: [25, 30, 65, 20, 40]
+      },
+      fire: {
+        title: "Wildfires & Natural Flooding",
+        score: "Accuracy: 76.5%",
+        desc: "Lonjakan hilangnya tutupan hutan akibat kebakaran musiman ekstrem yang sering bertepatan dengan musim kemarau panjang dan anomali termal. Klasifikasi ini memiliki tantangan tersendiri karena sering tumpang tindih dengan anomali genangan air atau banjir.",
+        data: [40, 20, 25, 75, 30]
+      }
+    };
+
+    function selectDriver(key) {
+      ['Agri', 'Logging', 'Mining', 'Fire'].forEach(k => {
+        document.getElementById(`btn${k}`).classList.remove('active');
+      });
+      document.getElementById(`btn${key.charAt(0).toUpperCase() + key.slice(1)}`).classList.add('active');
+
+      let info = driverDetails[key];
+      document.getElementById('driverTitle').innerText = info.title;
+      document.getElementById('driverScore').innerText = info.score;
+      document.getElementById('driverDesc').innerText = info.desc;
+
+      driverChart.data.datasets[0].data = info.data;
+      driverChart.update();
+    }
+  </script>
+</body>
+</html>
